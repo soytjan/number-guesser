@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Guesser</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1><strong class="pink-text">Number</strong> Guesser</h1>
+  </header>
+  <section class="guess-input">
+    <form>
+        <input type="number" id="user-input" name="user-input" placeholder="Enter your guess">
+        <br>
+        <button type="submit" id="guess-button" class="button-style1" disabled="true">Guess</button>
+        <button type="reset" id="clear-button" class="button-style1" disabled="true">Clear</button>
+    </form>
+  </section>
+  <section class="last-guess">
+    <h2>Your last guess was</h2>
+    <p class="pink-text" id="user-last-guess">##</p>
+    <h2 id="user-msg">That is too high</h2>
+    <p> Find a number between <span id="min-max">numbers here</span></p>
+    <button type="reset" name="reset" class="button-style2" disabled>Reset</button>
+  </section>
+  <script type="text/javascript" src="number.js"></script>
+</body>
+
+</html>

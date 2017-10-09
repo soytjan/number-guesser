@@ -1,0 +1,100 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+body {
+  padding:0;
+  margin: 0;
+  font-size: 100%;
+}
+
+strong {
+
+  font-weight: 700;
+}
+
+.pink-text {
+  color: #ED458B;
+}
+
+header {
+  background-color: #404041;
+  color: #E6E7E8;
+  height: 95px;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+h1 {
+  padding: 15px;
+  margin: 0px;
+  font-size: 3em;
+}
+
+.guess-input {
+  margin: 45px auto 20px;
+  text-align: center;
+
+}
+
+#user-input {
+  font-size: 24px;
+  padding: 2px 5px;
+  width: 360px;
+}
+
+/*code to get rid of arrows in input box*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+button { 
+  background-color: #929497; 
+  color: #FFFFFF;
+  border-radius: 50px;
+}
+
+button:disabled {
+  background-color: #D0D2D3;
+}
+
+button:disabled:hover {
+   background-color: #D0D2D3;
+}
+
+button:hover {
+  background-color: #EB008B;
+}
+
+.button-style1 {
+  font-size: 22px;
+  margin: 40px 15px;
+  width: 163px;
+}
+
+.button-style2 {
+  width: 360px;
+  font-size: 16px;
+  margin: 60px;
+}
+
+.last-guess {
+  text-align: center;
+}
+
+h2 {
+  margin: 0px;
+}
+
+#user-last-guess {
+    font-size: 10em;
+    margin: 0px;
+    line-height: 1.1em;
+}
+
