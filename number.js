@@ -7,13 +7,14 @@ var randNum;
 var userNum = document.getElementById('user-input');
 var guessButton = document.getElementById('guess-button');
 var clearButton = document.getElementById('clear-button');
+var resetButton = document.getElementById('reset-button');
+
+var errorMsg = document.getElementById('error-msg');
 
 window.onload = function() {
   genRandNum();
-  document.getElementById('min-max').innerText = " " + minNum + " and " + maxNum;
+  document.getElementById('min-max').innerText = " " + minNum + " - " + maxNum;
 };
-
-// clean this put and put it into a disable and enable function? 
 
 userNum.addEventListener('keyup', function () {
   if(userNum.value === '') {
@@ -23,24 +24,37 @@ userNum.addEventListener('keyup', function () {
     guessButton.removeAttribute('disabled');
     clearButton.removeAttribute('disabled');
   }
-});
+}); 
 
 guessButton.addEventListener('click', function() {
   if(checkGuess()) {
    console.log('error present');
-   //checkGuess();
+   errorMsg.innerText = 'ERROR: Please enter a valid number between ' + minNum + ' and ' + maxNum;
  } else {
+    errorMsg.innerText = "";
     changeLastGuess(event);
     compare();
-  
+    resetButton.removeAttribute('disabled');
  }
+ document.getElementById('guess-form').reset(); 
 });
 
-// will need to use this function for Reset button and will need to put in multiplier();
+resetButton.addEventListener('click', function() {
+  window.location.reload(true);
+});
+
 function genRandNum() {
   randNum = Math.floor(Math.random() * (maxNum - minNum) + minNum);
   console.log(randNum);
 };
+
+function checkGuess() {
+  if(isNaN(parseInt(userNum.value)) === true || parseInt(userNum.value) < minNum || parseInt(userNum.value) > maxNum) {
+    console.log("checkGuess function is working");
+    event.preventDefault();  
+    return true;
+  } 
+}
 
 function changeLastGuess(event) {
   var lastGuess = document.getElementById('user-last-guess');
@@ -58,22 +72,13 @@ function compare() {
   } else {
     msgToUser.innerText = 'BOOM!';
     nextLevel();
+    errorMsg.innerText = 'Your new range is from ' + minNum + ' to ' + maxNum;
   }
 }
 
 // don't want to change the last guess if doesn't meet conditions, also NaN part isn't working
 // tried to put it all in 1 if statement, but NaN part isn't working
-function checkGuess() {
-  if(parseInt(userNum.value) == NaN) {
-    alert('ERROR: Please enter a number!');
-    return true;
-  } 
-  else if (parseInt(userNum.value) < minNum || parseInt(userNum.value) > maxNum) {
-    console.log("checkGuess function is working");
-    alert('ERROR: Please enter a valid number between ' + minNum + ' and ' + maxNum);
-    return true;
-  } 
-}
+
 
 function nextLevel() {
   minNum -= 10;
