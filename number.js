@@ -5,6 +5,9 @@ var maxNum = 100;
 var randNum;
 
 var userNum = document.getElementById('user-input');
+var userMin = document.getElementById('min-num'); 
+var userMax =  document.getElementById('max-num')
+
 var guessButton = document.getElementById('guess-button');
 var clearButton = document.getElementById('clear-button');
 var resetButton = document.getElementById('reset-button');
@@ -15,15 +18,33 @@ var guessSection = document.getElementById('guess-section');
 var minMaxSection = document.getElementById('min-max-section');
 
 var errorMsg = document.getElementById('error-msg');
+var minMaxErrorMsg = document.getElementById('min-max-error');
 
+// consider not including
 window.onload = function() {
-  genRandNum();
-  document.getElementById('min-max').innerText = " " + minNum + " - " + maxNum;
   guessSection.classList.add('hide');
 };
 
+minMaxButton.addEventListener('click', function() {
+  event.preventDefault();
+  changeMinMax(parseInt(userMin.value), parseInt(userMax.value));
+  if (checkMinMax()) {
+    console.log('error present');
+    return;
+  } else {
+    genRandNum();
+    writeMinMax();
+    minMaxSection.classList.add('hide');
+    guessSection.classList.remove('hide');   
+  }
+});
+
+
 defaultButton.addEventListener('click', function() {
   event.preventDefault();
+  changeMinMax(1, 100);
+  genRandNum();
+  writeMinMax();
   minMaxSection.classList.add('hide');
   guessSection.classList.remove('hide');
 });
@@ -55,6 +76,35 @@ guessButton.addEventListener('click', function() {
 resetButton.addEventListener('click', function() {
   window.location.reload(true);
 });
+
+function writeMinMax () {
+  document.getElementById('min-max').innerText = " " + minNum + " - " + maxNum;
+}
+
+function changeMinMax(min, max) {
+  minNum = parseInt(min);
+  maxNum = parseInt(max);
+  console.log('changeMinMax function is working' + minNum + 'and' + maxNum);
+}
+
+function checkMinMax() {
+  if(isNaN(minNum) === true || isNaN(maxNum) === true) {
+    console.log('checkMinMax function is working');
+    minMaxErrorMsg.innerText = 'Please enter numbers!';
+    event.preventDefault();  
+    return true;
+  } else if(maxNum <= minNum) {
+    console.log('checkMinMax function is working');
+    minMaxErrorMsg.innerText = 'Make your max number bigger than your minimum!';
+    event.preventDefault();  
+    return true;
+  } else if ((maxNum - minNum) < 10) {
+    console.log('checkMinMax function is working');
+    minMaxErrorMsg.innerText = 'Let\'s do a range of at least 10 numbers :)';
+    event.preventDefault();  
+    return true;
+  }
+}
 
 function genRandNum() {
   randNum = Math.floor(Math.random() * (maxNum - minNum) + minNum);
@@ -95,7 +145,7 @@ function compare() {
 
 function nextLevel() {
   minNum -= 10;
-  maxNum +=10;
+  maxNum += 10;
   console.log(minNum);
   console.log(maxNum);
   genRandNum();

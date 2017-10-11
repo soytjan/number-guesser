@@ -34,11 +34,26 @@ h1 {
   font-size: 3em;
 }
 
+
+
 .hide {
   display:none;
 }
 
-/*user picks min max form -- make a table?*/
+/*min max form -- make a table?*/
+.input-container {
+  display: inline-block;
+}
+
+.input-container label {
+  display: block;
+  padding: 12px 5px;
+}
+
+.input-container input  {
+  display: block;
+}
+
 #min-max-section {
   margin-top: 35px;
 }
@@ -50,7 +65,11 @@ h1 {
 .min-max-input {
   font-size: 20px;
   padding: 2px 5px;
-  margin: 5px;
+  margin: 15px 5px;
+}
+
+#min-max-form p {
+  padding-top: 35px;
 }
 
 /*guess form styling*/
@@ -72,6 +91,10 @@ input[type=number]::-webkit-outer-spin-button {
     -moz-appearance: none;
     appearance: none;
     margin: 0; 
+}
+
+#min-max-form button {
+  display: block;
 }
 
 button { 
@@ -101,13 +124,12 @@ button:hover {
 .button-style2 {
   width: 360px;
   font-size: 16px;
-  margin-top: 20px;
-  /*margin: 60px;*/
+  margin-top: 55px;
 }
 
 .button-style3 {
   font-size: 22px;
-  margin: 10px auto 30px;
+  margin: 30px auto 50px;
   width: 163px;
 }
 
@@ -126,6 +148,6 @@ h2 {
 }
 
 .range {
-  margin-top: 45px;
+  margin-top: 0px;
 }
 
