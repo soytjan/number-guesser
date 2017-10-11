@@ -9,36 +9,38 @@
   <header>
     <h1><strong class="pink-text">Number</strong> Guesser</h1>
   </header>
-  <section class="guess-input">
     <!-- start user min max form -->
-    <div>
-      <h2>Give us your range</h2>
-      <form id="user-min-max">
+    <section id="min-max-section">
+      <h2>Give us a range!</h2>
+      <form id="min-max-form">
         <label>Minimum number:  <input type="text" id="min-num" class="min-max-input" placeholder="Enter min number"></label>
         <br>
         <label>Maximum number:  <input type="text" id="max-num" class="min-max-input" placeholder="Enter max number"></label>
         <br>
-        <button type="submit" id="min-max-button" class="button-style1">Submit</button>
+        <button type="submit" id="send-min-max" class="button-style3">Submit</button>
+        <p>Can't decide? Let us pick for you!</p>
+        <button type="submit" id="default-button" class="button-style3">Default</button>
       </form>
-      <p>or</p>
-    </div>
+    </section>
     <!-- end user min max form -->
-    <p id="error-msg"></p>
-    <form id="guess-form">
-      <input type="number" id="user-input" name="user-input" placeholder="Enter your guess">
-      <br>
-      <button type="submit" id="guess-button" class="button-style1" disabled="true">Guess</button>
-      <button type="reset" id="clear-button" class="button-style1" disabled="true">Clear</button>
-    </form>
+  <section id="guess-section">  
+    <section id="guess-form">
+      <p id="error-msg"></p>
+      <form>
+        <input type="number" id="user-input" name="user-input" placeholder="Enter your guess">
+        <br>
+        <button type="submit" id="guess-button" class="button-style1" disabled="true">Guess</button>
+        <button type="reset" id="clear-button" class="button-style1" disabled="true">Clear</button>
+      </form>
+    </section>  
+    <section class="last-guess">
+      <h2>Your last guess was</h2>
+      <p class="pink-text" id="user-last-guess">?</p>
+      <h2 id="user-msg">Make a guess!</h2>
+      <p class="range">Find a number from <span id="min-max" class="pink-text">numbers here</span></p>
+      <button type="reset" id="reset-button" name="reset" class="button-style2" disabled>Reset</button>
+    </section>
   </section>
-  <section class="last-guess">
-    <h2>Your last guess was</h2>
-    <p class="pink-text" id="user-last-guess">?</p>
-    <h2 id="user-msg">Make a guess!</h2>
-    <p class="range">Find a number from <span id="min-max" class="pink-text">numbers here</span></p>
-    <button type="reset" id="reset-button" name="reset" class="button-style2" disabled>Reset</button>
-  </section>
-  <p>hi</p>
   <script type="text/javascript" src="number.js"></script>
 </body>
 

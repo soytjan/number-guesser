@@ -8,13 +8,25 @@ var userNum = document.getElementById('user-input');
 var guessButton = document.getElementById('guess-button');
 var clearButton = document.getElementById('clear-button');
 var resetButton = document.getElementById('reset-button');
+var minMaxButton = document.getElementById('send-min-max');
+var defaultButton = document.getElementById('default-button');
+
+var guessSection = document.getElementById('guess-section');
+var minMaxSection = document.getElementById('min-max-section');
 
 var errorMsg = document.getElementById('error-msg');
 
 window.onload = function() {
   genRandNum();
   document.getElementById('min-max').innerText = " " + minNum + " - " + maxNum;
+  guessSection.classList.add('hide');
 };
+
+defaultButton.addEventListener('click', function() {
+  event.preventDefault();
+  minMaxSection.classList.add('hide');
+  guessSection.classList.remove('hide');
+});
 
 userNum.addEventListener('keyup', function () {
   if(userNum.value === '') {
@@ -36,7 +48,8 @@ guessButton.addEventListener('click', function() {
     compare();
     resetButton.removeAttribute('disabled');
  }
- document.getElementById('guess-form').reset(); 
+ console.log(userNum);
+ userNum.value = "";
 });
 
 resetButton.addEventListener('click', function() {

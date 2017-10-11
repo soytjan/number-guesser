@@ -7,6 +7,7 @@ body {
   padding:0;
   margin: 0;
   font-size: 100%;
+  text-align: center;
 }
 
 strong {
@@ -33,8 +34,16 @@ h1 {
   font-size: 3em;
 }
 
+.hide {
+  display:none;
+}
+
 /*user picks min max form -- make a table?*/
-#user-min-max {
+#min-max-section {
+  margin-top: 35px;
+}
+
+#min-max-form {
   margin-top: 15px;
 }
 
@@ -45,9 +54,8 @@ h1 {
 }
 
 /*guess form styling*/
-.guess-input {
+#guess-form {
   margin: 45px auto 20px;
-  text-align: center;
 
 }
 
@@ -86,7 +94,7 @@ button:hover {
 
 .button-style1 {
   font-size: 22px;
-  margin: 40px 15px;
+  margin: 40px 15px 30px;
   width: 163px;
 }
 
@@ -95,6 +103,12 @@ button:hover {
   font-size: 16px;
   margin-top: 20px;
   /*margin: 60px;*/
+}
+
+.button-style3 {
+  font-size: 22px;
+  margin: 10px auto 30px;
+  width: 163px;
 }
 
 .last-guess {
