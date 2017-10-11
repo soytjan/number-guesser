@@ -20,10 +20,33 @@ var minMaxSection = document.getElementById('min-max-section');
 var errorMsg = document.getElementById('error-msg');
 var minMaxErrorMsg = document.getElementById('min-max-error');
 
-// consider not including
 window.onload = function() {
   guessSection.classList.add('hide');
 };
+
+userMin.addEventListener('keyup', function(){
+  if(userMin.value === '') {
+    disableButton(userMin, minMaxButton);
+  } else {
+    enableButton(userMin, minMaxButton);
+  }
+});
+
+userMax.addEventListener('keyup', function(){
+  if(userMax.value === '') {
+    disableButton(userMax, minMaxButton);
+  } else {
+    enableButton(userMax, minMaxButton);
+  }
+});
+
+function disableButton (inputName, buttonName) {
+  buttonName['setAttribute']('disabled', 'true');
+};
+
+function enableButton (inputName, buttonName) {
+  buttonName['removeAttribute']('disabled');
+}
 
 minMaxButton.addEventListener('click', function() {
   event.preventDefault();
@@ -51,11 +74,15 @@ defaultButton.addEventListener('click', function() {
 
 userNum.addEventListener('keyup', function () {
   if(userNum.value === '') {
-    guessButton.setAttribute('disabled', 'true');
-    clearButton.setAttribute('disabled', 'true');
+    disableButton(userNum, guessButton);
+    disableButton(userNum, clearButton);
+    // guessButton.setAttribute('disabled', 'true');
+    // clearButton.setAttribute('disabled', 'true');
   } else {
-    guessButton.removeAttribute('disabled');
-    clearButton.removeAttribute('disabled');
+    enableButton(userNum, guessButton);
+    enableButton(userNum, clearButton);
+    // guessButton.removeAttribute('disabled');
+    // clearButton.removeAttribute('disabled');
   }
 }); 
 
