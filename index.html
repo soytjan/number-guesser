@@ -11,7 +11,7 @@
   </header>
     <!-- start user min max form section -->
   <section id="min-max-section">
-    <h2 id="min-max-error">Create a range of numbers to guess from!</h2>
+    <h2 id="min-max-error" tabindex="0">Create a range of numbers to guess from!</h2>
     <form id="min-max-form">
       <div class="input-container">
         <label for="min-num">Minimum number:</label>
@@ -21,15 +21,15 @@
         <input type="text" id="min-num" class="min-max-input" placeholder="Enter min number">
         <input type="text" id="max-num" class="min-max-input" placeholder="Enter max number">
       </div> 
-      <button type="submit" id="send-min-max" class="button-style3" disabled="true">Submit</button>
-      <p>Can't decide? Let us pick for you!</p>
+      <button type="submit" id="send-min-max" class="button-style3" disabled="true" aria-label="Submit your range of numbers">Submit</button>
+      <p tabindex="0">Can't decide? Let us pick for you!</p>
       <button type="submit" id="default-button" class="button-style3">Default</button>
     </form>
   </section>
   <!-- start guess form section -->
   <section id="guess-section">  
     <article id="guess-form">
-      <p class="range">Find a number from <span id="min-max" class="pink-text">...</span></p>
+      <p class="range" tabindex="0">Find a number from <span id="min-max" class="pink-text">...</span></p>
       <p id="error-msg"></p>
       <form>
         <input type="number" id="user-input" name="user-input" placeholder="Enter your guess">
@@ -38,7 +38,7 @@
         <button type="reset" id="clear-button" class="button-style1" disabled="true">Clear</button>
       </form>
     </article>  
-    <article class="last-guess">
+    <article class="last-guess" tabindex="0">
       <h2>Your last guess was</h2>
       <p class="pink-text" id="user-last-guess">?</p>
       <h2 id="user-msg">Make a guess!</h2>
