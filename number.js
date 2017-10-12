@@ -24,6 +24,7 @@ window.onload = function() {
   guessSection.classList.add('hide');
 };
 
+// min and max section event listeners
 userMin.addEventListener('keyup', function(){
   if(userMin.value === '') {
     disableButton(userMin, minMaxButton);
@@ -40,14 +41,6 @@ userMax.addEventListener('keyup', function(){
   }
 });
 
-function disableButton (inputName, buttonName) {
-  buttonName['setAttribute']('disabled', 'true');
-};
-
-function enableButton (inputName, buttonName) {
-  buttonName['removeAttribute']('disabled');
-}
-
 minMaxButton.addEventListener('click', function() {
   event.preventDefault();
   changeMinMax(parseInt(userMin.value), parseInt(userMax.value));
@@ -62,7 +55,6 @@ minMaxButton.addEventListener('click', function() {
   }
 });
 
-
 defaultButton.addEventListener('click', function() {
   event.preventDefault();
   changeMinMax(1, 100);
@@ -72,17 +64,14 @@ defaultButton.addEventListener('click', function() {
   guessSection.classList.remove('hide');
 });
 
+// guess section listeners
 userNum.addEventListener('keyup', function () {
   if(userNum.value === '') {
     disableButton(userNum, guessButton);
     disableButton(userNum, clearButton);
-    // guessButton.setAttribute('disabled', 'true');
-    // clearButton.setAttribute('disabled', 'true');
   } else {
     enableButton(userNum, guessButton);
     enableButton(userNum, clearButton);
-    // guessButton.removeAttribute('disabled');
-    // clearButton.removeAttribute('disabled');
   }
 }); 
 
@@ -91,23 +80,34 @@ guessButton.addEventListener('click', function() {
    console.log('error present');
    errorMsg.innerText = 'ERROR: Please enter a valid number between ' + minNum + ' and ' + maxNum;
  } else {
-    errorMsg.innerText = "";
+    errorMsg.innerText = '';
     changeLastGuess(event);
     compare();
     resetButton.removeAttribute('disabled');
  }
  console.log(userNum);
- userNum.value = "";
+ userNum.value = '';
 });
 
 resetButton.addEventListener('click', function() {
   window.location.reload(true);
 });
 
-function writeMinMax () {
-  document.getElementById('min-max').innerText = " " + minNum + " - " + maxNum;
+// general functions
+function genRandNum() {
+  randNum = Math.floor(Math.random() * (maxNum - minNum) + minNum);
+  console.log(randNum);
+};
+
+function disableButton (inputName, buttonName) {
+  buttonName['setAttribute']('disabled', 'true');
+};
+
+function enableButton (inputName, buttonName) {
+  buttonName['removeAttribute']('disabled');
 }
 
+// min max section functions
 function changeMinMax(min, max) {
   minNum = parseInt(min);
   maxNum = parseInt(max);
@@ -133,10 +133,10 @@ function checkMinMax() {
   }
 }
 
-function genRandNum() {
-  randNum = Math.floor(Math.random() * (maxNum - minNum) + minNum);
-  console.log(randNum);
-};
+// guess section functions
+function writeMinMax () {
+  document.getElementById('min-max').innerText = " " + minNum + " - " + maxNum;
+}
 
 function checkGuess() {
   if(isNaN(parseInt(userNum.value)) === true || parseInt(userNum.value) < minNum || parseInt(userNum.value) > maxNum) {
@@ -150,7 +150,7 @@ function changeLastGuess(event) {
   var lastGuess = document.getElementById('user-last-guess');
   event.preventDefault();
   console.log("The changeLastGuess function is working")
-  lastGuess.innerText = userNum.value;
+  lastGuess.innerText = parseInt(userNum.value);
 }
 
 function compare() {
@@ -165,10 +165,6 @@ function compare() {
     errorMsg.innerText = 'Your new range is from ' + minNum + ' to ' + maxNum;
   }
 }
-
-// don't want to change the last guess if doesn't meet conditions, also NaN part isn't working
-// tried to put it all in 1 if statement, but NaN part isn't working
-
 
 function nextLevel() {
   minNum -= 10;

@@ -4,19 +4,10 @@
 }
 
 body {
-  padding:0;
-  margin: 0;
   font-size: 100%;
+  margin: 0;
+  padding:0;
   text-align: center;
-}
-
-strong {
-
-  font-weight: 700;
-}
-
-.pink-text {
-  color: #ED458B;
 }
 
 header {
@@ -29,78 +20,37 @@ header {
 }
 
 h1 {
-  padding: 15px;
-  margin: 0px;
   font-size: 3em;
+  margin: 0px;
+  padding: 15px;
 }
 
+h2 {
+  margin: 0px;
+}
 
+strong {
+
+  font-weight: 700;
+}
+
+.pink-text {
+  color: #ED458B;
+}
 
 .hide {
   display:none;
 }
 
-/*min max form -- make a table?*/
-.input-container {
-  display: inline-block;
-}
-
-.input-container label {
-  display: block;
-  padding: 12px 5px;
-}
-
-.input-container input  {
-  display: block;
-}
-
-#min-max-section {
-  margin-top: 35px;
-}
-
-#min-max-form {
-  margin-top: 15px;
-}
-
-.min-max-input {
-  font-size: 20px;
-  padding: 2px 5px;
-  margin: 15px 5px;
-}
-
-#min-max-form p {
-  padding-top: 35px;
-}
-
-/*guess form styling*/
-#guess-form {
-  margin: 45px auto 20px;
-
-}
-
-#user-input {
-  font-size: 24px;
-  padding: 2px 5px;
-  width: 360px;
-}
-
-/*code to get rid of arrows in input box*/
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
-}
-
+/*button styling*/
 #min-max-form button {
   display: block;
 }
 
 button { 
   background-color: #929497; 
-  color: #FFFFFF;
   border-radius: 50px;
+  color: #FFFFFF;
 }
 
 button:disabled {
@@ -108,7 +58,7 @@ button:disabled {
 }
 
 button:disabled:hover {
-   background-color: #D0D2D3;
+ background-color: #D0D2D3;
 }
 
 button:hover {
@@ -122,8 +72,8 @@ button:hover {
 }
 
 .button-style2 {
-  width: 360px;
   font-size: 16px;
+  width: 360px;
   margin-top: 55px;
 }
 
@@ -133,21 +83,74 @@ button:hover {
   width: 163px;
 }
 
+/*min max form*/
+#min-max-section {
+  margin-top: 35px;
+}
+
+.min-max-input {
+  font-size: 20px;
+  padding: 2px 5px;
+  margin: 15px 5px;
+}
+
+#min-max-form {
+  margin-top: 15px;
+}
+
+#min-max-form p {
+  padding-top: 35px;
+}
+
+/*align form elements -- labels and input boxes*/
+.input-container {
+  display: inline-block;
+}
+
+.input-container label {
+  display: block;
+  padding: 12px 5px;
+  text-align: right;
+}
+
+.input-container input  {
+  display: block;
+}
+
+/*guess form styling*/
+.range {
+  margin-top: 0px;
+}
+
+#guess-form {
+  margin: 45px auto 20px;
+}
+
+#user-input {
+  font-size: 24px;
+  padding: 2px 5px;
+  width: 360px;
+}
+
+/*code to get rid of arrows in input box*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0; 
+}
+
+/*last guess styling*/
 .last-guess {
   text-align: center;
 }
 
-h2 {
-  margin: 0px;
-}
-
 #user-last-guess {
-    font-size: 10em;
-    margin: 0px;
-    line-height: 1.1em;
+  font-size: 10em;
+  margin: 0px;
+  line-height: 1.1em;
 }
 
-.range {
-  margin-top: 0px;
-}
+
 
